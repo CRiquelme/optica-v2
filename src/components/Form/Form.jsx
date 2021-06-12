@@ -3,84 +3,28 @@ import Input from "../Input/Input";
 import Button from "../Button/Button";
 import Label from "../Label/Label";
 
-let data = {
-  input: [
-    {
-      onChange: (e) => console.log(e.target.value),
-      type: "text",
-      value: "hi",
-      className: "bg-blue-100",
-      label: "Nombre",
-    },
-    {
-      onChange: (e) => console.log(e.target.value),
-      type: "text",
-      value: "hi",
-      className: "bg-blue-100",
-      label: "Nombre",
-    },
-    {
-      onChange: (e) => console.log(e.target.value),
-      type: "text",
-      value: "hi",
-      className: "bg-blue-100",
-      label: "Nombre",
-    },
-    {
-      onChange: (e) => console.log(e.target.value),
-      type: "text",
-      value: "hi",
-      className: "bg-blue-100",
-      label: "Nombre",
-    },
-  ],
-  Button: [
-    {
-      value: "cancelar",
-      className: "rounded bg-gray-200 p-2 m-2",
-      onClick: () => alert("soy button"),
-    },
-    {
-      value: "Guardar",
-      className: "rounded bg-gray-200 p-2 m-2",
-      onClick: () => alert("soy button"),
-    },
-    {
-      value: "Otro Boton",
-      className: "rounded bg-gray-200 p-2 m-2",
-      onClick: () => alert("soy button"),
-    },
-    {
-      value: "Uno más",
-      className: "rounded bg-gray-200 p-2 m-2",
-      onClick: () => alert("soy button"),
-    },
-  ],
-  styles: {
-    sectionInputs: "grid grid-cols-2 gap-4 mx-2",
-    sectionButtons: "flex justify-center items-center",
-  },
-};
-
-const Form = () => {
+const Form = ({ data }) => {
   return (
-    <form className="">
-      <section className={data.styles.sectionInputs}>
+    <form className={data.styles.form}>
+      <section className={data.styles.containerInputs}>
         {data.input.map((input) => (
-          <>
+          <div
+            key={input.forContent}
+            className={data.styles?.containerLabelInput || ""}
+          >
             <Label forContent={input.forContent} content={input.label} />
             <Input
-              onChange={input.onChange}
+              onChange={(e) => input.onChange(e.target.value)}
               type={input.type}
               value={input.value}
               name={input.name}
               placeholder={input.placeholder}
-              className={input.className || ""}
+              className={data.styles?.input || ""}
             />
-          </>
+          </div>
         ))}
       </section>
-      <section>
+      <section styles={data.styles.containerButton}>
         {data.Button.map((button) => (
           <Button
             value={button.value}

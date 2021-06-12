@@ -3,7 +3,7 @@ import React from "react";
 const Label = ({ forContent, content, className }) => {
   return (
     <>
-      <label for={forContent} className={className}>
+      <label htmlFor={forContent} className={className}>
         {content}
       </label>
     </>

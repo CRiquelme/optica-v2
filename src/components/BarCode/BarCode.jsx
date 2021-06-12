@@ -1,9 +1,8 @@
 import "./barcode.scss";
-import { useState } from "react";
-import Form from "./components/Form/Form";
+import React from 'react'
 import { useBarcode } from "react-barcodes";
 
-function BarCode({ barcode, className }) {
+const BarCode = ({ barcode, className })=> {
   const { inputRef } = useBarcode({
     value: barcode,
     options: {
