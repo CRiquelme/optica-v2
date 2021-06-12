@@ -1,22 +1,43 @@
+import { useState, useEffect } from "react";
+import {
+  Admin,
+  Resource,
+  ListGuesser,
+  List,
+  Datagrid,
+  TextField,
+  DateField,
+  BooleanField,
+} from "react-admin";
+import simpleRestProvider from "ra-data-json-server";
 import "./App.scss";
-import {useState} from 'react'
-import Form from "./components/Form/Form";
-import { useBarcode } from 'react-barcodes';
 
+const dataProvider = simpleRestProvider ("https://jsonplaceholder.typicode.com/todos");
+
+const Post = (props) => {
+
+  console.log("props", props)
+  return (
+    <List {...props}>
+      <Datagrid>
+        <TextField source="userId" />
+        <TextField source="id" />
+        <TextField source="title" />
+        <TextField source="body" />
+      </Datagrid>
+    </List>
+  );
+};
 
 function App() {
-  const [state,setState]= useState(" ")
-  const { inputRef } = useBarcode({
-    value: state,
-    options: {
-      background: '#fff',
-    }
-  });
+console.log(dataProvider)
+
   return (
-    <div className="">   
-    <input type="text" onChange={(e)=>setState(e.target.value || " ")}/>        
-      <svg ref={inputRef} />
-    </div>
+    <>
+    <Admin dataProvider={dataProvider}>
+      <Resource name="users" list={Post} />
+    </Admin>
+    </>
   );
 }
 
