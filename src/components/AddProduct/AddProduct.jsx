@@ -1,7 +1,9 @@
 import { useState } from "react";
 import Form from "../Form/Form";
 
-function FormCategory() {
+
+
+function AddProduct() {
   const [product, setProduct] = useState("");
   const [provider, setProvider] = useState("");
   const [category, setCategory] = useState("");
@@ -11,19 +13,7 @@ function FormCategory() {
   const [buyPrice, setBuyPrice] = useState("");
   const [criticalStock, setCriticalStock] = useState("");
   const [initialStock, setInitialStock] = useState("");
-
-  // console.log(
-  //   product,
-  //   provider,
-  //   category,
-  //   brand,
-  //   bill,
-  //   unitPrice,
-  //   buyPrice,
-  //   criticalStock,
-  //   initialStock
-  // );
-
+  
   let formAddProduct = {
     input: [
       {
@@ -125,4 +115,4 @@ function FormCategory() {
   );
 }
 
-export default FormCategory;
+export default AddProduct;

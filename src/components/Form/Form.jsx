@@ -1,14 +1,15 @@
 import React from "react";
-import Input from "../Input/Input";
+//import Input from "../Input/Input";
 import Button from "../Button/Button";
-import Label from "../Label/Label";
+//import Label from "../Label/Label";
+import TextField from "@material-ui/core/TextField";
 
-const Form = ({ data }) => {
-  return (
-    <form className={data.styles.form}>
-      <section className={data.styles.containerInputs}>
-        {data.input.map((input) => (
-          <div
+/**
+ * 
+ * 
+ * @returns código para input usando componentes propios, no de material ui
+ * 
+ *  <div
             key={input.forContent}
             className={data.styles?.containerLabelInput || ""}
           >
@@ -21,7 +22,23 @@ const Form = ({ data }) => {
               placeholder={input.placeholder}
               className={data.styles?.input || ""}
             />
-          </div>
+          </div>         
+ */
+
+const Form = ({ data }) => {
+  return (
+    <form className={data.styles.form}>
+      <section className={data.styles.containerInputs}>
+        {data.input.map((input) => (
+          <>
+            <TextField
+              key={input.name}
+              onChange={(e) => input.onChange(e.target.value)}
+              value={input.value}
+              label={input.label}
+              id={input.name}
+            />
+          </>
         ))}
       </section>
       <section styles={data.styles.containerButton}>
