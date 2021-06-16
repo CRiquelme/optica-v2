@@ -1,11 +1,12 @@
 import React from 'react'
 
-const ProductEntry = () => {
+const ProductEntry = ({data}) => {
     return (
         <div>
-            
+            <h1>Nuevo ingreso</h1>
+
         </div>
     )
 }
 
-export default ProductEntry;
+export default ProductEntry

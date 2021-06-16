@@ -1,7 +1,9 @@
 //import { useEffect, useState } from "react";
 //import { DataGrid } from "@material-ui/data-grid";
 //import axios from "axios";
-import AddProduct from "./components/AddProduct/AddProduct";
+import { useState } from "react";
+import ProductEntry from "./components/ProductEntry/ProductEntry";
+import Selects from "./components/Select/Selects";
 
 
 // const rows = [
@@ -27,13 +29,18 @@ import AddProduct from "./components/AddProduct/AddProduct";
 // ];
 
 export default function App() {
-
-
+  const [age, setAge] = useState('');
+  const handleChange = (event) => {
+    setAge(event.target.value || "");
+  };
   return (
     // <div style={{ height: 300, width: "100%" }}>
     //   <DataGrid rows={data} columns={columns} checkboxSelection  editRowsModel={true}
     //     onEditCellChange={true}	/>
     // </div>
-  <AddProduct />
+    <>
+      <Selects  onChange={event=>handleChange(event)} name="hi" id="hi" content={["Manzana", "Banana"]} />
+      {age}
+    </>
   );
 }
