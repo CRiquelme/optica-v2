@@ -10,14 +10,18 @@ import "./selects.scss";
    @param content Array with text strings for the content of the MenuItem component. (options)
  * @returns 
  */
-const Selects = ({ onChange, id, content }) => { 
+const Selects = ({ onChange, id, content,label, className }) => {
   return (
-    <FormControl>
-  
-      <Select id={id} onChange={onChange} >    
-        {content?.map((item)=><MenuItem key={item} value={item || ""}>{item}</MenuItem>)}
-      </Select>
-    </FormControl>
+    <>
+      <label>{label}</label>
+      <select className={className} id={id} onChange={onChange}>
+        {content?.map((item) => (
+          <option key={item} value={item || ""}>
+            {item}
+          </option>
+        ))}
+      </select>
+    </>
   );
 };
 

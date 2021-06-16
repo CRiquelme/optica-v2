@@ -3,7 +3,7 @@
 //import axios from "axios";
 import { useState } from "react";
 import ProductEntry from "./components/ProductEntry/ProductEntry";
-import Selects from "./components/Select/Selects";
+
 
 
 // const rows = [
@@ -29,18 +29,12 @@ import Selects from "./components/Select/Selects";
 // ];
 
 export default function App() {
-  const [age, setAge] = useState('');
-  const handleChange = (event) => {
-    setAge(event.target.value || "");
-  };
+  
   return (
     // <div style={{ height: 300, width: "100%" }}>
     //   <DataGrid rows={data} columns={columns} checkboxSelection  editRowsModel={true}
     //     onEditCellChange={true}	/>
     // </div>
-    <>
-      <Selects  onChange={event=>handleChange(event)} name="hi" id="hi" content={["Manzana", "Banana"]} />
-      {age}
-    </>
+   <ProductEntry />
   );
 }
