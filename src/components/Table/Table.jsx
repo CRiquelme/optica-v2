@@ -1,7 +1,7 @@
 import React from "react";
-import Datatable from "react-data-table-component";
+import DataTable from "react-data-table-component";
 
-const DataTable = ({ columns, data, title, headerHeight, className }) => {
+const Table = ({ columns, data, title, headerHeight, className }) => {
   const paginateOption = {
     rowsPerPageText: "Filas por página",
     rangeSeparatorText: "de",
@@ -16,6 +16,7 @@ const DataTable = ({ columns, data, title, headerHeight, className }) => {
         columns={columns}
         data={data}
         title={title}
+        pagination
         fixedHeaderScrollHeight={headerHeight}
         paginationComponentOptions={paginateOption}
       />
@@ -23,4 +24,4 @@ const DataTable = ({ columns, data, title, headerHeight, className }) => {
   );
 };
 
-export default DataTable;
+export default Table;
