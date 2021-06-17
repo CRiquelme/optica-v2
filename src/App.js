@@ -1,25 +1,20 @@
-import logo from './logo.svg';
-import './App.css';
+//import { useEffect, useState } from "react";
+//import { DataGrid } from "@material-ui/data-grid";
+//import axios from "axios";
+import { useState } from "react";
+import ProductEntry from "./components/ProductEntry/ProductEntry";
 
-function App() {
+export default function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    // <div style={{ height: 300, width: "100%" }}>
+    //   <DataGrid rows={data} columns={columns} checkboxSelection  editRowsModel={true}
+    //     onEditCellChange={true}	/>
+    // </div>
+    <div className="flex ">
+      <div className="ml-16 mt-20">
+        <ProductEntry />
+      </div>
+     
     </div>
   );
 }
-
-export default App;
